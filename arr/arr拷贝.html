@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-	// http://blog.csdn.net/fungleo/article/details/54931379
+	// 参考路径 http://blog.csdn.net/fungleo/article/details/54931379
 
 
 
@@ -18,7 +18,20 @@
 			console.log(arr,arr2)
 
 
+		var obj = {
+  			name: 'FungLeo',
+		  	sex: 'man',
+		  	old: '18'
+		}
 
+		console.log(typeof JSON.stringify(obj));
+
+		var obj2 = JSON.parse(JSON.stringify(obj));
+		console.log(obj2)
+
+		var arr3 = [1,2,2,2,2,2,3,3,3,3,45,6,6,6,6,6,8];
+
+		console.log([...new Set(arr3)])
 	</script>
 </body>
 </html>

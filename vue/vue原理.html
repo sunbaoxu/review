@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue原理</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" id="a">
+		<span id="b"></span>
+	</div>
+	<script type="text/javascript">
+		var dom = nodeTofragment(document.getElementById('app'));
+
+		console.log(dom)
+
+		function nodeTofragment(node) {
+			var flag = document.createDocumentFragment();
+			var child ;
+console.log(flag,node.firstChild)
+			while (child = node.firstChild) {
+				flag.append(child)
+			}
+
+			return flag;
+		}
+	</script>
+</body>
+</html>
