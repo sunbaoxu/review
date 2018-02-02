@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>排序</title>
+</head>
+<body>
+  <script>
+    //1、冒泡排序
+	  var arr = [4,8,3,5,6,9];
+
+    for (var i=0;i <arr.length ;i++){
+      for(var k = i+1; k<arr.length ; k++){
+        var time ;
+        if(arr[i] < arr[k]){
+          time   = arr[i];
+          arr[i] = arr[k];
+          arr[k] = time;
+        }
+      }
+    }
+
+  //选择排序
+
+  var ind,m;
+  for(var i=0; i<arr.length ;i++){
+    ind = i;
+    for(var k=i+1; k<arr.length ; k++){
+      if(arr[ind] < arr[k]){
+        ind = k;
+      }
+    }
+    m        = arr[ind];
+    arr[ind] = arr[i];
+    arr[i]   = m;
+  }
+
+  //插入排序
+  var ind, m;
+  for (var i = 1; i < arr.length; i++) {
+    ind = i - 1;
+    m   = arr[i];
+    while(ind >= 0 && arr[ind] > m) {
+      arr[ind+1] = arr[ind];
+      ind--;
+    }
+    arr[ind+1] = m;
+  }
+
+  //快速排序
+  function kuai (arr){
+    if(arr.length == 0) {
+      return [];    // 返回空数组
+    }
+
+    var ind = Math.floor(arr.length/2)
+    var m = arr.splice(ind,1),
+        a = [],b=[];
+
+    for(var i=0;i<arr.length; i++){
+      if(arr[i] > m){
+        a.push(arr[i])
+      } else{
+        b.push(arr[i])
+      }
+    }
+
+    return kuai(a).concat(m,kuai(b))
+  }
+  
+
+  </script>
+</body>
+</html>

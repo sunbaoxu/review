@@ -8,12 +8,18 @@
 </head>
 <body>
   <script>
-    for(var i=1; i<=5 ; i++){
-      (function(k){
-        setTimeout(function ()  {
-        console.log(k)
-      }, k*1000)
-      })(i)
+    // for(var i=1; i<=5 ; i++){
+    //   (function(k){
+    //     setTimeout(function ()  {
+    //     console.log(k)
+    //   }, k*1000)
+    //   })(i)
+    // }
+
+    for(let i=1; i<=5 ; i++){
+      setTimeout(function ()  {
+        console.log(i)
+      }, i*1000)
     }
   </script>
 </body>

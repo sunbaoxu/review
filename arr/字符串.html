@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>字符串</title>
+</head>
+<body>
+  <script>
+    //1、字符串出现最多个数（第一种）
+	 	var str ='abcdefgaaass',
+        arr = str.split(''),
+        max = 0,val = '';
+
+        function fn(arr,m){
+          var num = 0;
+          for(var i=0;i<arr.length ; i++){
+            if(arr[i] == m){
+              num++
+            }
+          }
+          return num;
+        }
+
+        for(var i=0;i<arr.length ; i++){
+          var ind=fn(arr,arr[i]);
+          if(ind > max){
+            max = ind;
+            val = arr[i];
+          }
+        }
+
+       console.log(`出现最多的是${val},共出现${max}次`)
+
+   //2、字符串出现最多个数（第2种）
+    var str='aaasssssbbbcccccbbbbcc';
+        function change(arr){
+          var len=0,str1='';
+          for(var j=0;j<arr.length;j++){
+            var x = arr.substr(j,1);
+            var y = arr.split(x);
+            if(y.length-1>len){
+              len = y.length-1;
+              str1=`出现最多的是${x},共出现${len}次`;
+            }
+          }
+            return str1;
+        }
+          
+    console.log(change(str));
+  </script>
+</body>
+</html>

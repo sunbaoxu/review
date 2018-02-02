@@ -8,7 +8,50 @@
 </head>
 <body>
   <script>
+    // function fn() {
+    //   return 20;
+    // }
+    // console.log(fn + 10); // 输出结果是多少？
+//     Array.prototype.getName =function () {
+//       console.log(arguments)
+//       return 'aaa'
+//     }
 
+//     var obj = {
+//       fn : function(){
+//         console.log(arguments)
+//       }
+//     }
+
+//     obj.fn()
+
+// console.log([].getName());  // 输出结果是多少？
+
+  Array.prototype._map = function(fn) {
+    var temp = [];
+    if(typeof fn == 'function') {
+        var k = 0;
+        var len = this.length;
+        // 封装for循环过程
+        for(; k < len; k++) {
+    console.log(this[k], k,this)
+            // 将每一项的运算操作丢进fn里，利用call方法指定fn的this指向与具体参数
+          // temp.push(fn.call(this, this[k], k, this))
+          temp.push(fn(this[k],k))
+        }
+    } else {
+        console.error('TypeError: '+ fn +' is not a function.');
+    }
+
+    // 返回每一项运算结果组成的新数组
+    return temp;
+  }
+
+  var newArr = [1, 2, 3, 4]._map(function(item,num) {
+    return item + num;
+  });
+
+  console.log(newArr)
   </script>
 </body>
 </html>
